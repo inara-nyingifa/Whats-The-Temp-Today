@@ -3,82 +3,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>The Weather</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<!--JS-->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-<script src="https://kit.fontawesome.com/d3bce829f3.js" crossorigin="anonymous"></script>
-
-
 <body>
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-body text-center bg-dark text-white">
-            <h1>Weather Dashboard</h1>
-        </div>
-    </div>
-    <div class="container">
+    <header class="mt-2 text-center p-2">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main class="container">
         <div class="row">
-            <div class="col">
-                <div class="card-body text-center">
-                    <div class="card" style="width: 20rem;">
-                        <div class="card-body bg-light">
-                            <h6 class="card-subtitle mb-2 text-muted">Search For A City</h6>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control searchInput" placeholder="City Name Here"
-                                    aria-describedby="button-addon2" aria-label="Recipient's username">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary bg-primary searchButton" type="button"
-                                        id="button-addon2">
-                                        <i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-
-                            <ul class="list-group">
-
-                            </ul>
-                        </div>
+            <div class="col-sm-2 bg-light">
+                <h4 class="pt-1">Let's Check The Weather:</h4>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"id="search-city" aria-label="City Search" aria-describedby="search-button">
+                    <div class="input-group-append">
+                        <button class=" btn bg-primary btn-block text-light" id="search-button">Search</button>
                     </div>
                 </div>
-            </div>
-            <!-- Current Weather -->
+                    <button class="btn btn-outline-success btn-block" type="button" id="clear-history">Clear</button>
+                    <ul class="list-group"> </ul>
+            </div>   
 
-            <div class="col mt-4 mr-5">
-                <div class="card currentCard pb-2 pt-1">
-                    <h5 class="card-styles mt-2 text-center">Current Forecast</h5>
+<!-- todays weather-->
+            <div class="col-sm-8">
+                <div class="row ml-3 border border-dark rounded weather">
+                    <div class="col-sm-12" id="current-weather">
+                        <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                        <p>Temperature: <span class="current" id="temperature"></span></p>
+                        <p>Humidity: <span class="current" id="humidity"></span></p> 
+                        <p>Wind: <span class="current" id="wind-speed"></span></p>
+                        <p>UV index: <span class="current py-2 px-2" id="uv-index"></span></p> 
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col mt-4">
-                    <div class="card pb-5 fiveDayCard pl-5">
-                        <!-- Weather forcast-->
-                        <h5 class="card-styles mt-2 mr-5">5-Day Forecast </h5>
-                        <div class="row">
-                            <div class="col fiveDayOne">
-                            </div>
-
+<!--display forcast for the week-->
+                <div class="col-sm-12" id ="future-weather">
+                    <h3>This week's forcast:</h3>
+                    <div class="row text-light">
+                        <div class="col-sm bg-dark forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                            <p id="fDate0"></p>
+                            <p id="fImg0"></p>
+                            <p>Temp: <span id="fTemp0"></span></p>
+                            <p>Wind: <span id="fWind0"></span></p>
+                            <p>Humidity: <span id="fHumidity0"></span></p>
                         </div>
-
+                        <div class="col-sm bg-dark forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                            <p id="fDate1"></p>
+                            <p id="fImg1"></p>
+                            <p>Temp: <span id="fTemp1"></span></p>
+                            <p>Wind: <span id="fWind1"></span></p>
+                            <p>Humidity: <span id="fHumidity1"></span></p>
+                        </div>
+                        <div class="col-sm bg-dark forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                            <p id="fDate2"></p>
+                            <p id="fImg2"></p>
+                            <p>Temp: <span id="fTemp2"></span></p>
+                            <p>Wind: <span id="fWind2"></span></p>
+                            <p>Humidity: <span id="fHumidity2"></span></p>
+                        </div>
+                        <div class="col-sm bg-dark forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                            <p id="fDate3"></p>
+                            <p id="fImg3"></p>
+                            <p>Temp: <span id="fTemp3"></span></p>
+                            <p>Wind: <span id="fWind3"></span></p>
+                            <p>Humidity: <span id="fHumidity3"></span></p>
+                        </div>
+                        <div class="col-sm bg-dark forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                            <p id="fDate4"></p>
+                            <p id="fImg4"></p>
+                            <p>Temp: <span id="fTemp4"></span></p>
+                            <p>Wind: <span id="fWind4"></span></p>
+                            <p>Humidity: <span id="fHumidity4"></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
