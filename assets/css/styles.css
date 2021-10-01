@@ -5,7 +5,7 @@
 }
 
 header {
-background-image: linear-gradient(to right, rgb(69, 69, 187), rgb(19, 30, 63));
+background-color: aqua;
 color: white;  
 margin: 10px;
 }
@@ -17,28 +17,24 @@ body {
     
 }
 
-h3 {
-    font-weight: bold;
-    margin-top: 20px;
-}
-.weather {
-    margin: 20px 10px 0px 0px;
+.future-weather {
+    margin-bottom: 20px;
 }
 
 .forecast{
     font-size: 0.9em;
 }
 
-.future-weather {
-    margin-bottom: 20px;
-}
 
 span {
     font-size: 1em;
 }
+.weather {
+    margin: 50px 10px 0px 0px;
+}
 
 li:hover {
-    background-color: rgb(162, 163, 165);
+    background-color: rgb(154,205,50);
     text-decoration: underline;
-    color:rgb(255, 255, 255);
+    color:rgb(154,205,50);
 }
