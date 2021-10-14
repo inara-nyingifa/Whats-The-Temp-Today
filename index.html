@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <!--body starts-->
-<body>
+<body style= "background-image: url(https://i.pinimg.com/originals/85/f8/c4/85f8c4241e502636dd2bcf0f3c6e886e.jpg);">
     <header class="mt-2 text-center p-2">
         <h1>Check Out The Weather</h1>
     </header>
     <main class="container">
         <div class="row">
-            <div class="col-sm-2 bg-light">
-                <h4 class="pt-1">Let's Check The Weather:</h4>
+            <div class="col-sm-2 bg-light border border-dark rounded">
+                <h4 class="pt-1" >Let's Check The Weather:</h4>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control"id="search-city" aria-label="City Search" aria-describedby="search-button">
                     <div class="input-group-append">
@@ -30,7 +30,7 @@
 
 <!-- todays weather-->
             <div class="col-sm-8">
-                <div class="row ml-3 border border-dark rounded weather">
+                <div style = " background-color: white;" class="row ml-3 border border-dark rounded weather">
                     <div class="col-sm-12" id="current-weather">
                         <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
                         <p>Temperature: <span class="current" id="temperature"></span></p>
